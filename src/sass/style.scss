@@ -4,6 +4,7 @@
 
 $color-light: #fff;
 $color-dark: #444;
+$color-darker: #222425;
 
 $font-logo: 'Sacramento', cursive;
 $font-header: 'Oswald', sans-serif;
@@ -16,7 +17,7 @@ $font-text: 'Source Sans Pro', sans-serif;
 }
 
 body {
-  background: $color-light;
+  background: $color-darker;
   font-family: $font-text;
   color: $color-dark;
   font-weight: 300;
@@ -73,6 +74,38 @@ body {
   font-size: 104px;
   line-height: 1;
   text-align: center;
+}
+
+//FIXME: OGRANICZ WIELKOŚĆ KONTENERA BY HOVER Z TEXT SHADOW REAGOWAŁ NA SAM TEXT NIE KONTENER
+
+.logo:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+.flicker-slow{
+  animation: flicker 3s linear infinite;
+}
+
+.flicker-fast{
+  animation: flicker 1s linear infinite;
+}
+
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%
+
+  {
+    opacity: .99;
+  }
+
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999%
+
+  {
+    opacity: 0.4;
+  }
 }
 
 /* Lists */
