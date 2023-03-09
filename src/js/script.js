@@ -32,15 +32,16 @@
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list';
+    //optArticleTopicSelector = 'post-section';
 
-  function generateTitleLinks(){
+  function generateTitleLinks(customSelector = ''){
 
     /*[-DONE-] remove contents of titleList */
     const titleList = document.querySelector(optTitleListSelector);
     titleList.innerHTML = '';
 
     /*[-DONE-] find all the articles and save them to variable: articles */
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector + customSelector);
     let html = '';
 
     /*[-DONE-][START-LOOP] for each article */
@@ -154,16 +155,27 @@
     generateTitleLinks('[data-tags~="' + tag + '"]');
   }
 
-  function addClickListenersToTags(){
-    /* find all links to tags */
-
-    /* START LOOP: for each link */
-
-      /* add tagClickHandler as event listener for that link */
-
-    /* END LOOP: for each link */
-  }
+  const addClickListenersToTags = function (){
+    /*[DONE]find all links to tags*/
+    const tagLinks = document.querySelectorAll('.post-tags a');
+    /*[DONE]START LOOP: for each link*/
+    for (let tagLink of tagLinks) {
+      /*[DONE]add tagClickHandler as event listener for that link*/
+      tagLink.addEventListener('click', tagClickHandler);
+    }/*[DONE]END LOOP: for each link*/
+  };
 
   addClickListenersToTags();
+
+  // function generateAuthors(){
+  //   /*[DONE] prevent default action for this event */
+  //   event.preventDefault();
+  //   /*[DONE] make new constant named "clickedElement" and give it the value of "this" */
+  //   const clickedElement = this;
+  //   /*[-DONE-] find all topic */
+  //   const topicSelector = document.querySelector(optArticleTopicSelector);
+
+
+  // }
 
 }
